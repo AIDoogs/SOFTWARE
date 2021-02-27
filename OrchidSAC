@@ -1,0 +1,75 @@
+  
+priceList = {
+    'vandas' : 7.35,
+    'miltonia' : 9.80,
+    'cattleya' : 10.00
+}
+# Makes a list of items and prices
+
+while True:
+    member = input("Are you a member? [Y] or [N] > " )
+    if member.upper() == 'Y':
+        member = True
+        break
+    elif member.upper() == 'N':
+        member = False
+        break
+    else:
+        print("Please enter Y or N")
+# Checks if the person is a memeber, will repeat until given a proper answer
+
+while True:
+    orchid = input("Which Orchid would you like? [V]andas, [M]iltonia, or [C]attleya > ")
+    if orchid.upper() not in ['V','M','C']:
+        print("Please enter V, M or C")
+    else:
+        break
+# Checks what type of orchid the person would like, will repeat until given a proper answer
+
+while True:
+    quan = int(input("How Many would you like? (0 - 99) > "))
+    if quan > 99 or quan < 1:
+        print("Please input a number between 0 and 99") 
+    else:
+        break
+# Checks the quantity that the person would like, will repeat until given a proper answer, Also has a range check from 0 - 99 
+print("Member status:",member)
+print("Chosen orchid:",orchid)
+
+if orchid == "V":
+    price = priceList['vandas']
+    price = int(price) * int(quan)
+    if quan > 5:
+        price = price *0.95
+    # print("Your price is:", price)
+    if member == True:
+        price = price *0.9
+        print("Your price is:", price)
+    if member == False:
+        print("your price is:", price)
+# Begins by listing the price, then multiplies the price by the quantity, if there is more than fivce it will add a 5% discount
+# It will then check the member status of the user and if they are a memeber it adds an extra 10% off the original price
+# It finishes by printing the price and ending the program 
+
+if orchid == "M":
+    price = priceList['miltonia']
+    price = int(price) * int(quan)
+    if quan > 5:
+        price = price *0.95
+    if member == True:
+        price = price *0.9
+        print("Your price is:", price)
+    if member == False:
+        print("your price is:", price)
+
+if orchid == "C":
+    price = priceList['cattleya']
+    price = int(price) * int(quan)
+    if quan > 5:
+        price = price *0.95
+    if member == True:
+        price = price *0.9
+        print("Your price is:", price)
+    if member == False:
+        print("your price is:", price)
+
